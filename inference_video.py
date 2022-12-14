@@ -1,7 +1,7 @@
 import argparse
 import time
 
-import matplotlib.pyplot as plt
+import matplotlib as plt
 import numpy as np
 import tensorflow as tf
 from matplotlib import animation
