@@ -230,6 +230,12 @@ we manage to increase the initial accuracy and achieve a loss decrease faster pr
 
 The final result can be observed in this video 
 
+
+
+https://user-images.githubusercontent.com/40666055/207930079-149c2c86-b5ef-436b-8959-2974aa9dc602.mp4
+
+
+
 #### Improve on the reference
 Definitely more time could be spend on hyperparameter tuning or choosing a more complex model but due to limited computing resources this remains to be future work.
 With enough computation time it could be considered to switch to a more complex model than the resnet50. Transformer networks have been shown to be outstanding concerning tasks like this but are extremely computationally expensive. 
