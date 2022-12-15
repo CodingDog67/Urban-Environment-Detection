@@ -1,2 +1,18 @@
 
 *.tfrecord
+
+*.gz
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/checkpoint
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0.data-00000-of-00001
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0.index
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/pipeline.config
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/saved_model/saved_model.pb
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/saved_model/variables/variables.data-00000-of-00001
+
+experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/saved_model/variables/variables.index

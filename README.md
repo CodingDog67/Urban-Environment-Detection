@@ -99,12 +99,12 @@ A new config file has been created, `pipeline_new.config`.
 You will now launch your very first experiment with the Tensorflow object detection API. Move the `pipeline_new.config` to the `/home/workspace/experiments/reference` folder. Now launch the training process:
 * a training process:
 ```
-python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config
+python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new_default.config
 ```
 Once the training is finished, launch the evaluation process:
 * an evaluation process:
 ```
-python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/
+python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new_default.config --checkpoint_dir=experiments/reference/
 ```
 
 **Note**: Both processes will display some Tensorflow warnings, which can be ignored. You may have to kill the evaluation script manually using
@@ -138,23 +138,75 @@ Finally, you can create a video of your model's inferences for any tf record fil
 python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path /data/waymo/testing/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new.config --output_path animation.gif
 ```
 
-## Submission Template
+## Submission Writeup
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+
+In this Project we are going to detect object from street camera data, mainly cars, pedestrians and cyclists. The importance of object especially when it comes to self driving car systems is 
+next to functionality of course safety. It is important to be able to detect all kinds of other traffic participants in time no matter the weather conditions in order to plan for collision avoidance. 
+Just as a human driver with human eyes an automatic system should be able to detect any important street component just as well if not better than a human to make self driving cars a viable choice for
+the future. 
+
 
 ### Set up
 This section should contain a brief description of the steps to follow to run the code for this repository.
+In order to run this you need the following dependencies / libraries 
+
+```
+pip install numpy
+pip install pandas
+pip install seaborn
+pip install tensorflow
+pip install pandas
+```
+In order to get the Tensorflow working please also refer to this 
+https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html
+
+This project was run on the Udacity provided Workspace in order to run it locally please return to the notes above provided by Udacity 
+
+
+
 
 ### Dataset
 #### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+First dive into a exploratory data analysis. To run it yourself please run the Explore Data Analysis.ipynb. 
+First look at a selected number (in our case 10) images to get a feel for the kind of images. In order to visualize the data a function was written to display them along with 
+the according bounding box in the respective color. Red for cars, blue for pedestrians and green for cyclists. 
+
+A sample can be seen below
+
+![plot](./screenshots/sample.png)
+![plot](./screenshots/sample2.png)
+![plot](./screenshots/sample3.png)
+
+In addition to this we explore some statistical data by randomly picking 50k images from the dataset and looking at the total number of 
+the class representation in those samples. 
+
+We found the overall distribution to be such 
+
+![plot](./screenshots/distribution.png)
+
+We also take a look at the number of objects of each class present in each image and display those in the graphs below 
+
+
+![plot](./screenshots/pedes.png)
+![plot](./screenshots/cycle.png)
+
+
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+100 tfrecord files are used in this project, which are randomly shuffled to avoid bias. The data is split into a classic training, testing and validation split. So the model is 
+improved according to the test set but ultimate the performance is measured on the validation split. 75% of the Data is used for training, 10% for testing and 15% for validation. 
+This ratio should hopefully avoid overfitting along with the applied augmentations. 
+In the best case the final model with tuned hyperparameters should be validated by a k-fold cross validation. The data is shuffled with each process so data in the training set is interchanged with test/validation set and vice versa. For more information please refer to https://machinelearningmastery.com/k-fold-cross-validation/
+
 
 ### Training
 #### Reference experiment
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
+
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+Definitely more time could be spend on hyperparameter tuning or choosing a more complex model but due to limited computing resources this remains to be future work.
+
+
+
