@@ -166,10 +166,13 @@ https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/instal
 
 This project was run on the Udacity provided Workspace in order to run it locally please return to the notes above provided by Udacity 
 
+In order to run everything please refer to the notes above and make sure to change the name of the config file to 
+new_config_final found in ./experiments/reference/
+
 
 ### Dataset
 #### Dataset analysis
-First dive into a exploratory data analysis. To run it yourself please run the Explore Data Analysis.ipynb. 
+First dive into an exploratory data analysis. To run it yourself please run the Explore Data Analysis.ipynb. 
 First look at a selected number (in our case 10) images to get a feel for the kind of images. In order to visualize the data a function was written to display them along with 
 the according bounding box in the respective color. Red for cars, blue for pedestrians and green for cyclists. 
 
@@ -221,22 +224,47 @@ Brightness augmentation
 
 This is done to increase the robustness of the model and avoid overfitting 
 
-By using Augmentation and tweaking of the learning rate and warm-up rate from 
+By using these additional augmentation and tweaking of the learning rate and warm-up rate from 
 a default of 
+
+```  
+Batchsize = 2
+learning_rate_base: 0.04
+total_steps: 2000
+warmup_learning_rate: 0.013333
+warmup_steps: 200
+```
 
 to 
 
-we manage to increase the initial accuracy and achieve a loss decrease faster proven by the tensorboard below. 
+```  
+Batchsize = 4
+learning_rate_base: 0.005
+total_steps: 2000
+warmup_learning_rate: 0.0005
+warmup_steps: 600
+```  
+
+The amounts of epoch for the final model are around 2500, we don't see much more improvement after that but the model 
+then slowly goes into overfitting. For the default setting we chose to interrupt the training after 2000 epoch as no significant improvement could
+be observed whatsoever.
+
+<img src="./screenshots/default_training.jpg" alt="drawing" width="400"/>
+
+We manage to increase the initial accuracy by a mile and achieve a loss decrease faster proven by the tensorboard below. 
+
+<img src="./screenshots/tensorboard_final.png" alt="drawing" width="400"/>
 
 The final result can be observed in this video 
-
-
 
 https://user-images.githubusercontent.com/40666055/207930079-149c2c86-b5ef-436b-8959-2974aa9dc602.mp4
 
 
 
-#### Improve on the reference
+#### Thoughts to improve on the reference
 Definitely more time could be spend on hyperparameter tuning or choosing a more complex model but due to limited computing resources this remains to be future work.
-With enough computation time it could be considered to switch to a more complex model than the resnet50. Transformer networks have been shown to be outstanding concerning tasks like this but are extremely computationally expensive. 
+Argue along these lines we could also use the entire dataset waymo dataset instead of a subset that we chose of this project 
+and try to augment the dataset so we do not have such a cross class imbalance anymore. 
+With enough computation time it could be considered to switch to a more complex model than the resnet50. 
+Transformer networks have been shown to be outstanding concerning tasks like this but are extremely computationally expensive. 
 
