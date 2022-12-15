@@ -174,23 +174,28 @@ First look at a selected number (in our case 10) images to get a feel for the ki
 the according bounding box in the respective color. Red for cars, blue for pedestrians and green for cyclists. 
 
 A sample can be seen below
-
+```
 ![plot](./screenshots/sample.png)
 ![plot](./screenshots/sample2.png)
 ![plot](./screenshots/sample3.png)
-
+```
 In addition to this we explore some statistical data by randomly picking 50k images from the dataset and looking at the total number of 
 the class representation in those samples. 
 
 We found the overall distribution to be such 
-
+```
 ![plot](./screenshots/distribution.png)
+```
 
 We also take a look at the number of objects of each class present in each image and display those in the graphs below 
 
+```
 <img src="./screenshots/pedes.png" alt="Alt text" title="pedestrian per image statistics">
 
+
+
 ![plot](./screenshots/cycle.png)
+```
 
 
 #### Cross validation
@@ -204,6 +209,11 @@ In the best case the final model with tuned hyperparameters should be validated 
 #### Reference experiment
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
+By using Augmentation and tweaking of the learning rate and warm-up rate from 
+to 
+
+we were able to improve the inital results by a mile as can be seen on the 
+tensorboards below 
 
 #### Improve on the reference
 Definitely more time could be spend on hyperparameter tuning or choosing a more complex model but due to limited computing resources this remains to be future work.
