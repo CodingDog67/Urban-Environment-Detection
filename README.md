@@ -136,14 +136,15 @@ This should create a new folder `experiments/reference/exported/saved_model`. Yo
 
 Finally, you can create a video of your model's inferences for any tf record file. To do so, run the following command (modify it to your files):
 ```
-python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path /data/waymo/testing/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new.config --output_path animation.gif
+python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path data/test/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new_default.config --output_path animation.gif
 ```
+
 
 ## Submission Writeup
 
 ### Project overview
 
-In this Project we are going to detect object from street camera data, mainly cars, pedestrians and cyclists. The importance of object especially when it comes to self driving car systems is 
+In this Project we are going to detect object from street camera data, mainly cars, pedestrians and cyclists. The import ance of object especially when it comes to self driving car systems is 
 next to functionality of course safety. It is important to be able to detect all kinds of other traffic participants in time no matter the weather conditions in order to plan for collision avoidance. 
 Just as a human driver with human eyes an automatic system should be able to detect any important street component just as well if not better than a human to make self driving cars a viable choice for
 the future. 
@@ -164,8 +165,6 @@ In order to get the Tensorflow working please also refer to this
 https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html
 
 This project was run on the Udacity provided Workspace in order to run it locally please return to the notes above provided by Udacity 
-
-
 
 
 ### Dataset
@@ -191,10 +190,10 @@ We found the overall distribution to be such
 We also take a look at the number of objects of each class present in each image and display those in the graphs below 
 
 
-<img src="./screenshots/pedes.png" alt="Alt text" title="pedestrian per image statistics">
+<img src="./screenshots/pedes.png" alt="Alt text" title="pedestrian per image statistics" width="500">
 
+<img src="./screenshots/cycle.png" width="500"/>
 
-![plot](./screenshots/cycle.png)
 
 
 
@@ -209,14 +208,29 @@ In the best case the final model with tuned hyperparameters should be validated 
 #### Reference experiment
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
+In order to improve the result additional augmentation methods are explored such as 
+
+Contrast augmentation
+<img src="./screenshots/augment contrast.png" alt="drawing" width="400"/>
+
+Color/hue augmentation
+<img src="./screenshots/augment_grey.png" alt="drawing" width="400"/>
+
+Brightness augmentation
+<img src="./screenshots/augment_darker.png" alt="drawing" width="400"/>
+
+This is done to increase the robustness of the model and avoid overfitting 
+
 By using Augmentation and tweaking of the learning rate and warm-up rate from 
+a default of 
+
 to 
 
-we were able to improve the inital results by a mile as can be seen on the 
-tensorboards below 
+we manage to increase the initial accuracy and achieve a loss decrease faster proven by the tensorboard below. 
+
+The final result can be observed in this video 
 
 #### Improve on the reference
 Definitely more time could be spend on hyperparameter tuning or choosing a more complex model but due to limited computing resources this remains to be future work.
-
-
+With enough computation time it could be considered to switch to a more complex model than the resnet50. Transformer networks have been shown to be outstanding concerning tasks like this but are extremely computationally expensive. 
 
