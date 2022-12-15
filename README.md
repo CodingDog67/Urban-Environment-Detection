@@ -188,8 +188,8 @@ We found the overall distribution to be such
 
 We also take a look at the number of objects of each class present in each image and display those in the graphs below 
 
+<img src="./screenshots/pedes.png" alt="Alt text" title="pedestrian per image statistics">
 
-![plot](./screenshots/pedes.png)
 ![plot](./screenshots/cycle.png)
 
 
