@@ -175,28 +175,27 @@ First look at a selected number (in our case 10) images to get a feel for the ki
 the according bounding box in the respective color. Red for cars, blue for pedestrians and green for cyclists. 
 
 A sample can be seen below
-```
+
 ![plot](./screenshots/sample.png)
 ![plot](./screenshots/sample2.png)
 ![plot](./screenshots/sample3.png)
-```
+
 In addition to this we explore some statistical data by randomly picking 50k images from the dataset and looking at the total number of 
 the class representation in those samples. 
 
 We found the overall distribution to be such 
-```
+
 ![plot](./screenshots/distribution.png)
-```
+
 
 We also take a look at the number of objects of each class present in each image and display those in the graphs below 
 
-```
+
 <img src="./screenshots/pedes.png" alt="Alt text" title="pedestrian per image statistics">
 
 
-
 ![plot](./screenshots/cycle.png)
-```
+
 
 
 #### Cross validation
