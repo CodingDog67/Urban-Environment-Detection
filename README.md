@@ -19,7 +19,7 @@ The data you will use for training, validation and testing is organized as follo
     - test - contains 3 files to test your model and create inference videos
 ```
 The `training_and_validation` folder contains file that have been downsampled: we have selected one every 10 frames from 10 fps videos. The `testing` folder contains frames from the 10 fps video without downsampling.
-```
+
 You will split this `training_and_validation` data into `train`, and `val` sets by completing and executing the `create_splits.py` file.
 
 
@@ -126,6 +126,7 @@ Keep in mind that the following are also available:
 ### Creating an animation
 #### Export the trained model
 Modify the arguments of the following function to adjust it to your models:
+
 
 ```
 python experiments/exporter_main_v2.py --input_type image_tensor --pipeline_config_path experiments/reference/pipeline_new.config --trained_checkpoint_dir experiments/reference/ --output_directory experiments/reference/exported/
