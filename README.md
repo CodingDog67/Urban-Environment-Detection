@@ -249,11 +249,17 @@ The amounts of epoch for the final model are around 2500, we don't see much more
 then slowly goes into overfitting. For the default setting we chose to interrupt the training after 2000 epoch as no significant improvement could
 be observed whatsoever.
 
-<img src="./screenshots/default_training.jpg" alt="drawing" width="500"/>
+<img src="./screenshots/learningdefault.png" alt="drawing" width="500"/>
 
 We manage to increase the initial accuracy by a mile and achieve a loss decrease faster proven by the tensorboard below. 
 
 <img src="./screenshots/tensorboard_final.png" alt="drawing" width="500"/>
+
+Also precision and recall for the final model can be observed below:
+<img src="./screenshots/precision final.png" alt="drawing" width="450"/>
+<img src="./screenshots/recall final.png" alt="drawing" width="450"/>
+
+Those values for the default model were extremely close to 0 and pretty meaningless 
 
 The final result can be observed in this video 
 
