@@ -256,8 +256,10 @@ We manage to increase the initial accuracy by a mile and achieve a loss decrease
 <img src="./screenshots/tensorboard_final.png" alt="drawing" width="500"/>
 
 Also precision and recall for the final model can be observed below:
-<img src="./screenshots/precision final.png" alt="drawing" width="450"/>
-<img src="./screenshots/recall final.png" alt="drawing" width="450"/>
+
+<img src="./screenshots/precision final.png" alt="drawing" width="500"/>
+
+<img src="./screenshots/recall final.png" alt="drawing" width="500"/>
 
 Those values for the default model were extremely close to 0 and pretty meaningless 
 
