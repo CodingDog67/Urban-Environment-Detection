@@ -263,8 +263,8 @@ Those values for the default model were extremely close to 0 and pretty meaningl
 
 The final result can be observed in this video 
 
-https://user-images.githubusercontent.com/40666055/207930079-149c2c86-b5ef-436b-8959-2974aa9dc602.mp4
 
+https://user-images.githubusercontent.com/40666055/208132831-97fe0809-d8a5-4ff8-8bff-f26181ed586f.mp4
 
 
 #### Thoughts to improve on the reference
