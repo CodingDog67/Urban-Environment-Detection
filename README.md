@@ -222,7 +222,7 @@ Color/hue augmentation
 Brightness augmentation
 <img src="./screenshots/augment_darker.png" alt="drawing" width="400"/>
 
-This is done to increase the robustness of the model and avoid overfitting 
+These augmentations are done to increase the performance of the model and avoid overfitting. They were chosen after close inspection of the dataset, by observing the various light and weather conditions i believe will make the overall data more robust. Brightness and contrast can simulate a very foggy condition or a scene at night. 
 
 By using these additional augmentation and tweaking of the learning rate and warm-up rate from 
 a default of 
